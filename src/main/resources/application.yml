@@ -1,1 +1,25 @@
 
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  jpa:
+    hibernate:
+      hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+          implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+
+      ddl-auto: create-drop
+    show-sql: true
+  batch:
+    jdbc:
+      initialize-schema: always
+
+app:
+  batch:
+    file: data/alerts.csv
